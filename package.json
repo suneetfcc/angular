@@ -1,0 +1,41 @@
+{
+  "name": "bangular",
+  "version": "1.0.0",
+  "description": "Angular with bangs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suneetfcc/bangular.git"
+  },
+  "keywords": [
+    "angular",
+    "javascript",
+    "learn"
+  ],
+  "author": "Suneet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suneetfcc/bangular/issues"
+  },
+  "homepage": "https://github.com/suneetfcc/bangular#readme",
+  "devDependencies": {
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "jasmine-core": "^2.6.3",
+    "jquery": "^3.2.1",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "karma": "^1.7.0",
+    "karma-cli": "^1.0.1",
+    "lodash": "^4.17.4",
+    "sinon": "^2.3.4"
+  }
+}
