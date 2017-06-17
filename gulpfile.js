@@ -32,4 +32,8 @@ gulp.task('test', function (done) {
     }, function() { done(); }).start();
 });
 
+gulp.task('watch', function() {
+    gulp.watch(jsSrc, ['default']);
+});
+
 gulp.task('default', ['lint', 'style-check', 'test']);
