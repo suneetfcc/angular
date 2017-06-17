@@ -65,6 +65,7 @@
         "expect": false,
         "beforeEach": false,
         "afterEach": false,
-        "sinon": false
+        "sinon": false,
+        "app": false
     }
 }
