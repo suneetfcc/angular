@@ -1,10 +1,5 @@
-var app = (function() {
+'use strict';
 
-    function sayHello(to) {
-        return _.template('Hello, <%= name%>!')({name: to});
-    }
-
-    return {
-        sayHello: sayHello
-    };
-})();
+function sayHello(to) {
+    return _.template('Hello, <%= name%>!')({name: to});
+}

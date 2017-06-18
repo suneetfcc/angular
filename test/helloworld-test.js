@@ -1,7 +1,11 @@
-describe('helloworld::', function () {
+/* global sayHello:false */
 
-    it('sayHello: should say hello world', function() {
-        expect(app.sayHello('World')).toBe('Hello, World!');
+'use strict';
+
+describe('helloworld', function () {
+
+    it('sayHello() should say hello world', function() {
+        expect(sayHello('World')).toBe('Hello, World!');
     });
 
 });

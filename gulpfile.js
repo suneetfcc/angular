@@ -1,3 +1,5 @@
+'use strict';
+
 //gulp and plugins
 var gulp   = require('gulp'),
     jshint = require('gulp-jshint'),

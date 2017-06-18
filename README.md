@@ -6,5 +6,5 @@
 $ git clone https://github.com/suneetfcc/bangular.git
 $ npm install
 $ gulp
-$ gulp test
+$ gulp watch
 ```

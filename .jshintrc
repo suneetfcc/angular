@@ -21,7 +21,7 @@
     "quotmark": "single",
     "undef": true,
     "unused": false,
-    "strict": false,
+    "strict": true,
     "maxparams": 10,
     "maxdepth": 5,
     "maxstatements": 40,
@@ -65,7 +65,6 @@
         "expect": false,
         "beforeEach": false,
         "afterEach": false,
-        "sinon": false,
-        "app": false
+        "sinon": false
     }
 }
