@@ -1,7 +1,6 @@
 var app = (function() {
 
-    function sayHello(to) 
-    {
+    function sayHello(to) {
         return _.template('Hello, <%= name%>!')({name: to});
     }
 
