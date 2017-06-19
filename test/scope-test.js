@@ -88,6 +88,63 @@ describe('Scope', function() {
             expect(watchFn).toHaveBeenCalled();
         });
 
+        it('triggers chained watchers in the same digest', function() {
+            scope.name = 'jane';
+
+            scope.$watch(function(scope) {
+                return scope.nameUpper;
+            }, function(newVal, oldVal, scope) {
+                if (newVal) {
+                    scope.initial = newVal.substring(0,1) + '.';
+                }
+            });
+
+            scope.$watch(function(scope) {
+                return scope.name;
+            }, function(newVal, oldVal, scope) {
+                scope.nameUpper = newVal.toUpperCase();
+            });
+
+            scope.$digest();
+            expect(scope.initial).toBe('J.');
+
+        });
+
+        it('gives up on the watches after 10 iterations', function() {
+            scope.prop1 = 0;
+            scope.prop2 = 0;
+
+            scope.$watch(function(scope) {
+                return scope.prop1;
+            }, function(newVal, oldVal, scope) {
+                scope.prop2++;
+            });
+
+            scope.$watch(function(scope) {
+                return scope.prop2;
+            }, function(newVal, oldVal, scope) {
+                scope.prop1++;
+            });
+
+            expect(function() { scope.$digest(); }).toThrow();
+        });
+
+        it('ends the digest when the last watch is clean', function() {
+            scope.props = new Array(100);
+            var calledTimes = 0;
+            _.times(100, function(index) {
+                scope.$watch(function(scope) {
+                    calledTimes++;
+                    return scope.props[index];
+                }, function() {});
+            });
+            scope.$digest();
+            expect(calledTimes).toBe(200);
+            scope.props[2] = 'x';
+            scope.$digest();
+            expect(calledTimes).toBe(400);
+        });
+
         afterEach(function() {
             scope = null;
         });
