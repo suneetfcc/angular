@@ -35,18 +35,19 @@ Scope.prototype.$digest = function() {
 
 Scope.prototype.$digestOnce = function() {
     var dirty = false;
+    var self = this;
     _.forEach(this.$$watchers, function(watcher) {
-        var newVal = watcher.watchFn(this);
+        var newVal = watcher.watchFn(self);
         var oldVal = watcher.last;
         if (newVal !== oldVal) {
             watcher.last = newVal;
-            watcher.listenerFn(newVal, (oldVal === initialVal ? newVal : oldVal), this);
+            watcher.listenerFn(newVal, (oldVal === initialVal ? newVal : oldVal), self);
             dirty = true;
-            this.$$lastDirtyWatcher = watcher;
-        } else if (this.$$lastDirtyWatcher === watcher) {
+            self.$$lastDirtyWatcher = watcher;
+        } else if (self.$$lastDirtyWatcher === watcher) {
             return false;
         }
-    }, this);
+    });
     return dirty;
 };
 

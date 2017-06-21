@@ -142,7 +142,7 @@ describe('Scope', function() {
             expect(calledTimes).toBe(200);
             scope.props[2] = 'x';
             scope.$digest();
-            expect(calledTimes).toBe(400);
+            expect(calledTimes).toBe(303);
         });
 
         afterEach(function() {
